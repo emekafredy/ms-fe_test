@@ -1,5 +1,9 @@
-import { ComingSoon } from "@/components/ComingSoon";
+import { WalletInfo } from "@/components/Revenue/WalletInfo";
 
 export default function Revenue() {
-  return <ComingSoon pageName="Revenue Page" />;
+  return (
+    <>
+      <WalletInfo />
+    </>
+  );
 }
