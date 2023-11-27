@@ -6,4 +6,5 @@ export type ButtonType = {
   rightIcon?: string;
   imgAlt?: string;
   handleClick: () => void;
+  active?: boolean;
 };

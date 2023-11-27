@@ -10,10 +10,13 @@ export const Button: FC<ButtonType> = ({
   rightIcon,
   imgAlt = "",
   handleClick,
+  active,
 }) => {
   return (
     <button
-      className={`btn-${btnClass} btn-${size} transition-all duration-500`}
+      className={`btn-${
+        active ? "primary" : btnClass
+      } btn-${size} transition-all duration-500`}
       onClick={handleClick}
     >
       {leftIcon && <Image src={leftIcon} alt={imgAlt} />}

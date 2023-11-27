@@ -4,6 +4,7 @@ import "./globals.css";
 
 // components
 import { TopNav } from "@/components/Navigations/TopNav";
+import { SideNav } from "@/components/Navigations/SideNav";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <TopNav />
+        <SideNav />
         {children}
       </body>
     </html>
