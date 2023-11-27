@@ -6,26 +6,40 @@ body {
   background: #ffffff;
 }
 
-/* Link styles */
-.link {
-  @apply px-12 py-4 
-    rounded-full 
-    flex justify-between items-center gap-2
-    text-sm;
+/* Button styles */
+button {
+  @apply rounded-full 
+    flex justify-center items-center gap-2 text-[14px];
 }
 
-.link-primary {
+.btn-primary {
   @apply bg-primary-100 text-white;
 }
 
-.link-primary:hover {
+.btn-primary:hover {
   @apply bg-opacity-90;
 }
 
-.link-secondary {
+.btn-secondary {
   @apply bg-white text-secondary-100;
 }
 
-.link-secondary:hover {
+.btn-secondary:hover {
   @apply bg-tertiary-100;
+}
+
+.btn-tertiary {
+  @apply bg-tertiary-100;
+}
+
+.btn-small {
+  @apply px-2 py-2;
+}
+
+.btn-medium {
+  @apply px-4 py-2;
+}
+
+.btn-large {
+  @apply px-12 py-4;
 }
