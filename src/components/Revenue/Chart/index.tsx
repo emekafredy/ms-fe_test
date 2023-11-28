@@ -13,7 +13,7 @@ export const Chart: FC<{ balance: number }> = ({ balance }) => {
             {" "}
             Available Balance{" "}
           </p>
-          <p className="font-extrabold text-xl md:text-2xl lg:text-4xl">
+          <p className="font-extrabold text-xl md:text-2xl lg:text-3xl">
             USD {formattedBalance}
           </p>
         </div>

@@ -15,7 +15,7 @@ export const WalletInfo = async () => {
   const wallet = await getWallet();
 
   return (
-    <div className="flex flex-col md:flex-row mt-44 w-[75%] md:w-[700px] lg:w-[900px] xl:w-[1100px] m-auto gap-8">
+    <div className="flex flex-col md:flex-row mt-44 gap-8">
       <Chart balance={wallet.balance} />
       <TransactionsSummary wallet={wallet} />
     </div>

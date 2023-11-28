@@ -29,7 +29,7 @@ button {
 }
 
 .btn-tertiary {
-  @apply bg-tertiary-100;
+  @apply bg-tertiary-100 font-semibold;
 }
 
 .btn-small {
@@ -41,5 +41,5 @@ button {
 }
 
 .btn-large {
-  @apply px-12 py-4;
+  @apply px-3 py-2 md:px-6 md:py-3;
 }

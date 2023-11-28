@@ -17,7 +17,7 @@ export const TransactionsSummary: FC<{ wallet: WalletType }> = ({ wallet }) => {
           </p>
           <Image src={InfoIcon} alt="info icon" />
         </div>
-        <p className="font-extrabold text-2xl lg:text-3xl">
+        <p className="font-extrabold text-xl lg:text-2xl">
           USD {formattedWallet.ledger_balance}
         </p>
       </div>
@@ -30,7 +30,7 @@ export const TransactionsSummary: FC<{ wallet: WalletType }> = ({ wallet }) => {
           </p>
           <Image src={InfoIcon} alt="info icon" />
         </div>
-        <p className="font-extrabold text-2xl lg:text-3xl">
+        <p className="font-extrabold text-xl lg:text-2xl">
           USD {formattedWallet.total_payout}
         </p>
       </div>
@@ -43,7 +43,7 @@ export const TransactionsSummary: FC<{ wallet: WalletType }> = ({ wallet }) => {
           </p>
           <Image src={InfoIcon} alt="info icon" />
         </div>
-        <p className="font-extrabold text-2xl lg:text-3xl">
+        <p className="font-extrabold text-xl lg:text-2xl">
           USD {formattedWallet.total_revenue}
         </p>
       </div>
@@ -56,7 +56,7 @@ export const TransactionsSummary: FC<{ wallet: WalletType }> = ({ wallet }) => {
           </p>
           <Image src={InfoIcon} alt="info icon" />
         </div>
-        <p className="font-extrabold text-2xl lg:text-3xl">
+        <p className="font-extrabold text-xl lg:text-2xl">
           USD {formattedWallet.pending_payout}
         </p>
       </>
