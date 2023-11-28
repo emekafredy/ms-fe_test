@@ -20,10 +20,10 @@ export const Chart: FC<{ balance: number }> = ({ balance }) => {
 
         <Link
           href="/revenue"
-          className="text-sm md:text-md lg:text-lg bg-primary-100 text-white px-4 md:px-6
-            lg:px-12 py-2 lg:py-4 rounded-full hover:bg-opacity-90"
+          className="text-sm md:text-md lg:text-lg bg-primary-100 text-white px-4 md:px-5
+            lg:px-8 py-2 lg:py-3 rounded-full hover:bg-opacity-90"
         >
-          Withdrawal
+          Withdraw
         </Link>
       </div>
 

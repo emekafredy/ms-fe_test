@@ -7,4 +7,6 @@ export type ButtonType = {
   imgAlt?: string;
   handleClick: () => void;
   active?: boolean;
+  bordered?: boolean;
+  disabled?: boolean;
 };

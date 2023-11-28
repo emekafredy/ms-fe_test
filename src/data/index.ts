@@ -92,3 +92,27 @@ export const sideNavItems = [
     icon: InvoiceIcon,
   },
 ];
+
+export const filterData = {
+  options: [
+    { id: "1", period: "Today" },
+    { id: "2", period: "Last 7 days" },
+    { id: "3", period: "This month" },
+    { id: "4", period: "Last 3 months" },
+    { id: "5", period: "This year" },
+    { id: "6", period: "Last year" },
+    { id: "7", period: "All time" },
+  ],
+};
+
+export const transactionTypesOptions = [
+  "store transactions",
+  "withdrawal",
+  "get tipped",
+  "deposit",
+  "chargebacks",
+  "cashbacks",
+  "refer & earn",
+];
+
+export const transactionStatusOptions = ["successful", "pending", "failed"];
