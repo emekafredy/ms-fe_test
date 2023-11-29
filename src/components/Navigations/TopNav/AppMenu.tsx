@@ -21,7 +21,7 @@ export const AppMenu = () => {
   const pathname = usePathname();
 
   return (
-    <div className="hidden sm:flex gap-2">
+    <div className="hidden md:flex gap-2">
       {appMenu.map((item) => {
         const path =
           item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`;
