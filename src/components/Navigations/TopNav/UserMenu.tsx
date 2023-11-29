@@ -20,10 +20,10 @@ export const UserMenu: FC<{ user: UserType }> = ({ user }) => {
     useState<boolean>(false);
 
   return (
-    <div className="flex gap-2">
+    <div className="hidden md:flex gap-2">
       {commsMenu.map((cm) => {
         return (
-          <div key={cm.id} className="hidden sm:inline">
+          <div key={cm.id}>
             <Button
               content={<Image src={cm.icon} alt={cm.title} />}
               btnClass="secondary"

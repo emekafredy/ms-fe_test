@@ -30,7 +30,7 @@ export const UserMenuDropDown: FC<{ user: UserType }> = ({ user }) => {
                   className="flex items-center justify-start gap-4 mt-6"
                 >
                   <Image src={item.icon} alt={item.title} />
-                  <p className="text-sm text-primary-100 font-semibold">
+                  <p className="text-sm text-primary-100 font-medium">
                     {item.title}
                   </p>
                 </div>
