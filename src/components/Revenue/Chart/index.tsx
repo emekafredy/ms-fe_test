@@ -54,7 +54,7 @@ const getChartData = (transactions: TransactionDetailsType[]) => {
         data: transactions?.map((o) => o.amount),
         fill: false,
         borderColor: "#FF5302",
-        tension: 0.5,
+        tension: 0.4,
         backgroundColor: "#FFFFFF",
         borderWidth: 1.7,
         pointRadius: 0,
@@ -100,7 +100,7 @@ export const ChartComponent: FC<{
       </div>
 
       <div className="flex items-center justify-center mt-8">
-        <Line data={data} width={400} options={options} />
+        <Line data={data} width={500} options={options} />
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ describe("Home Page ", () => {
 
     it("should have a link to the revenue page", () => {
       render(<Home />);
-      expect(screen.getByText("Visit Revenu")).toBeInTheDocument();
+      expect(screen.getByText("Visit Revenue")).toBeInTheDocument();
     });
   });
 });

@@ -5,6 +5,7 @@ import { FC, useState } from "react";
 // components
 import { TransactionHeader } from "./TransactionHeader";
 import { TransactionDetails } from "./TransactionDetails";
+import { EmptyList } from "./EmptyList";
 
 // others
 import {
@@ -21,7 +22,7 @@ export const TransactionsList: FC<TransactionsType> = ({ transactions }) => {
   const [filtersCount, setFiltersCount] = useState<number>(0);
   const [selectedPeriod, setSelectedPeriod] = useState<string>("All time");
 
-  useTransactionsFilter(
+  const { clearFilters } = useTransactionsFilter(
     setFilteredTransactions,
     transactions,
     setFiltersCount,
@@ -39,9 +40,13 @@ export const TransactionsList: FC<TransactionsType> = ({ transactions }) => {
       <hr />
 
       <div className="mt-8 mb-40">
-        {filteredTransactions.map((transaction, i) => {
-          return <TransactionDetails key={i} transaction={transaction} />;
-        })}
+        {filteredTransactions.length ? (
+          filteredTransactions.map((transaction, i) => {
+            return <TransactionDetails key={i} transaction={transaction} />;
+          })
+        ) : (
+          <EmptyList clearFilters={clearFilters} />
+        )}
       </div>
 
       <TransactionsFilter
