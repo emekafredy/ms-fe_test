@@ -39,19 +39,30 @@ export type TransactionFilterType = {
   selectedPeriod: string;
 };
 
-export type DateFilterType = {
+export type SetFilterOpenType = {
+  setTransactionStatusFilterOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setTransactionTypesOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setStartDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setEndDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export type DateFilterType = SetFilterOpenType & {
   startDate: Dayjs;
   setStartDate: React.Dispatch<React.SetStateAction<Dayjs>>;
   endDate: Dayjs;
   setEndDate: React.Dispatch<React.SetStateAction<Dayjs>>;
+  startDatePickerOpen: boolean;
+  endDatePickerOpen: boolean;
 };
 
-export type TypeFilterType = {
+export type TypeFilterType = SetFilterOpenType & {
   transactionTypes: string[];
   setTransactionTypes: React.Dispatch<React.SetStateAction<string[]>>;
+  transactionTypesOpen: boolean;
 };
 
-export type StatusFilterType = {
+export type StatusFilterType = SetFilterOpenType & {
   transactionStatus: string[];
   setTransactionStatus: React.Dispatch<React.SetStateAction<string[]>>;
+  transactionStatusFilterOpen: boolean;
 };

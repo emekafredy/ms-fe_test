@@ -8,9 +8,15 @@ export const WeekDayPicker: React.FC<WeekDayPickerType> = ({
   dateShown,
   dateSelected,
   onChange,
+  setStartDatePickerOpen,
+  setEndDatePickerOpen,
 }) => {
   const handleSelectDate = (value: Dayjs) => {
-    return () => onChange(value);
+    return () => {
+      onChange(value);
+      setStartDatePickerOpen(false);
+      setEndDatePickerOpen(false);
+    };
   };
 
   const rows = useMemo(() => getCalendarRows(dateShown), [dateShown]);
@@ -32,7 +38,7 @@ export const WeekDayPicker: React.FC<WeekDayPickerType> = ({
               <div
                 key={`${text} - ${i}`}
                 className={`py-2 h-[38px] w-[38px] my-2 rounded-full flex items-center justify-center ${
-                  dateSelected.toString() === value.toString()
+                  dateSelected && dateSelected.toString() === value.toString()
                     ? "bg-primary-100 text-white"
                     : "text-primary-100"
                 }`}

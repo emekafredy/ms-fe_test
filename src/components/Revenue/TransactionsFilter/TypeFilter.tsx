@@ -16,11 +16,16 @@ import { optionsSubstring } from "@/utils";
 export const TypeFilter: FC<TypeFilterType> = ({
   transactionTypes,
   setTransactionTypes,
+  setStartDatePickerOpen,
+  setEndDatePickerOpen,
+  setTransactionStatusFilterOpen,
+  setTransactionTypesOpen,
+  transactionTypesOpen,
 }) => {
-  const [transactionTypesOpen, setTransactionTypesOpen] =
-    useState<boolean>(false);
-
   const toggleTypesPicker = () => {
+    setStartDatePickerOpen(false);
+    setEndDatePickerOpen(false);
+    setTransactionStatusFilterOpen(false);
     setTransactionTypesOpen(!transactionTypesOpen);
   };
 

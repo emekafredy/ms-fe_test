@@ -19,11 +19,6 @@ export const useTransactionsFilter = (
   const [transactionTypes, setTransactionTypes] = useState<string[]>([]);
   const [transactionStatus, setTransactionStatus] = useState<string[]>([]);
 
-  const hasNoFilter =
-    transactionTypes.length === 0 &&
-    transactionStatus.length === 0 &&
-    (startDate === undefined || endDate || undefined);
-
   const handleDateFilterOptionChange = (period: string) => {
     setSelectedPeriod(period);
     const { startDate, endDate } = setDateFilterOption(period);
@@ -31,6 +26,11 @@ export const useTransactionsFilter = (
     setStartDate(startDate);
     setEndDate(endDate);
   };
+
+  const hasNoFilter =
+    transactionTypes.length === 0 &&
+    transactionStatus.length === 0 &&
+    (startDate === undefined || endDate === undefined);
 
   const filterTransactions = () => {
     const result = filterTransactionsData(
@@ -52,6 +52,16 @@ export const useTransactionsFilter = (
     setFiltersCount(filtersUsedCount);
   };
 
+  const clearFilters = () => {
+    setStartDate("");
+    setEndDate("");
+    setTransactionStatus([]);
+    setTransactionTypes([]);
+    setSelectedPeriod("All time");
+    setFiltersCount(0);
+    setFilteredTransactions(transactions);
+  };
+
   const handleFilterTransactions = () => {
     filterTransactions();
   };
@@ -70,5 +80,6 @@ export const useTransactionsFilter = (
     setSelectedPeriod,
     handleFilterTransactions,
     handleDateFilterOptionChange,
+    clearFilters,
   };
 };

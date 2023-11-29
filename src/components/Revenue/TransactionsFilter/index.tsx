@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 
 // components
@@ -25,6 +25,14 @@ export const TransactionsFilter: FC<TransactionFilterType> = ({
   setSelectedPeriod,
   selectedPeriod,
 }) => {
+  const [startDatePickerOpen, setStartDatePickerOpen] =
+    useState<boolean>(false);
+  const [endDatePickerOpen, setEndDatePickerOpen] = useState<boolean>(false);
+  const [transactionTypesOpen, setTransactionTypesOpen] =
+    useState<boolean>(false);
+  const [transactionStatusFilterOpen, setTransactionStatusFilterOpen] =
+    useState<boolean>(false);
+
   const { options } = filterData;
   const {
     startDate,
@@ -38,6 +46,7 @@ export const TransactionsFilter: FC<TransactionFilterType> = ({
     handleFilterTransactions,
     hasNoFilter,
     handleDateFilterOptionChange,
+    clearFilters,
   } = useTransactionsFilter(
     setFilteredTransactions,
     transactions,
@@ -86,16 +95,32 @@ export const TransactionsFilter: FC<TransactionFilterType> = ({
           setStartDate={setStartDate}
           endDate={endDate}
           setEndDate={setEndDate}
+          startDatePickerOpen={startDatePickerOpen}
+          endDatePickerOpen={endDatePickerOpen}
+          setStartDatePickerOpen={setStartDatePickerOpen}
+          setEndDatePickerOpen={setEndDatePickerOpen}
+          setTransactionTypesOpen={setTransactionTypesOpen}
+          setTransactionStatusFilterOpen={setTransactionStatusFilterOpen}
         />
 
         <TypeFilter
           transactionTypes={transactionTypes}
           setTransactionTypes={setTransactionTypes}
+          setStartDatePickerOpen={setStartDatePickerOpen}
+          setEndDatePickerOpen={setEndDatePickerOpen}
+          setTransactionTypesOpen={setTransactionTypesOpen}
+          setTransactionStatusFilterOpen={setTransactionStatusFilterOpen}
+          transactionTypesOpen={transactionTypesOpen}
         />
 
         <StatusFilter
           transactionStatus={transactionStatus}
           setTransactionStatus={setTransactionStatus}
+          setStartDatePickerOpen={setStartDatePickerOpen}
+          setEndDatePickerOpen={setEndDatePickerOpen}
+          setTransactionTypesOpen={setTransactionTypesOpen}
+          setTransactionStatusFilterOpen={setTransactionStatusFilterOpen}
+          transactionStatusFilterOpen={transactionStatusFilterOpen}
         />
 
         <div className="w-[86%] m-auto absolute bottom-6 xs:left-[50%] xs:-ml-[43%]">
@@ -105,7 +130,7 @@ export const TransactionsFilter: FC<TransactionFilterType> = ({
               btnClass="secondary"
               bordered
               size="wide"
-              handleClick={() => null}
+              handleClick={() => clearFilters()}
             />
 
             <Button

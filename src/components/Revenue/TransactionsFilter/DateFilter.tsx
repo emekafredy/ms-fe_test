@@ -17,18 +17,24 @@ export const DateFilter: FC<DateFilterType> = ({
   setStartDate,
   endDate,
   setEndDate,
+  startDatePickerOpen,
+  endDatePickerOpen,
+  setTransactionStatusFilterOpen,
+  setTransactionTypesOpen,
+  setStartDatePickerOpen,
+  setEndDatePickerOpen,
 }) => {
-  const [startDatePickerOpen, setStartDatePickerOpen] =
-    useState<boolean>(false);
-  const [endDatePickerOpen, setEndDatePickerOpen] = useState<boolean>(false);
-
   const toggleStartDatePicker = () => {
     setEndDatePickerOpen(false);
+    setTransactionStatusFilterOpen(false);
+    setTransactionTypesOpen(false);
     setStartDatePickerOpen(!startDatePickerOpen);
   };
 
   const toggleEndDatePicker = () => {
     setStartDatePickerOpen(false);
+    setTransactionStatusFilterOpen(false);
+    setTransactionTypesOpen(false);
     setEndDatePickerOpen(!endDatePickerOpen);
   };
 
@@ -41,7 +47,7 @@ export const DateFilter: FC<DateFilterType> = ({
             className="w-[50%] px-4 py-3 border rounded-lg flex items-center justify-between"
             onClick={toggleStartDatePicker}
           >
-            <p>{dayjs(startDate).format("DD MMM YYYY")}</p>
+            <p>{startDate ? dayjs(startDate).format("DD MMM YYYY") : ""}</p>
             <Image
               src={startDatePickerOpen ? ArrowUpIcon : ArrowDownIcon}
               alt="date-picker-icon"
@@ -52,7 +58,7 @@ export const DateFilter: FC<DateFilterType> = ({
             className="w-[50%] px-4 py-3 border rounded-lg flex items-center justify-between"
             onClick={toggleEndDatePicker}
           >
-            <p>{dayjs(endDate).format("DD MMM YYYY")}</p>
+            <p>{endDate ? dayjs(endDate).format("DD MMM YYYY") : ""}</p>
             <Image
               src={endDatePickerOpen ? ArrowUpIcon : ArrowDownIcon}
               alt="date-picker-icon"
@@ -65,6 +71,8 @@ export const DateFilter: FC<DateFilterType> = ({
           <DatePicker
             dateSelected={startDatePickerOpen ? startDate : endDate}
             onChange={startDatePickerOpen ? setStartDate : setEndDate}
+            setStartDatePickerOpen={setStartDatePickerOpen}
+            setEndDatePickerOpen={setEndDatePickerOpen}
           />
         </div>
       )}

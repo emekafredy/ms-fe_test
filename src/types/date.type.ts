@@ -9,6 +9,8 @@ export type WeekDayPickerType = {
   dateShown: Dayjs;
   dateSelected: Dayjs;
   onChange: (newDate: Dayjs) => void;
+  setStartDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setEndDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type MonthYearPickerType = {
@@ -20,4 +22,6 @@ export type DatePickerType = {
   dateSelected: Dayjs;
   selectorDateFormat?: string;
   onChange: (newDate: Dayjs) => void;
+  setStartDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setEndDatePickerOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };

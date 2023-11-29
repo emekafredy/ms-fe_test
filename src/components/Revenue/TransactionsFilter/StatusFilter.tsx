@@ -15,12 +15,17 @@ import { transactionStatusOptions } from "@/data";
 export const StatusFilter: FC<StatusFilterType> = ({
   transactionStatus,
   setTransactionStatus,
+  setEndDatePickerOpen,
+  setTransactionTypesOpen,
+  setStartDatePickerOpen,
+  transactionStatusFilterOpen,
+  setTransactionStatusFilterOpen,
 }) => {
-  const [transactionStatusOpen, setTransactionStatusOpen] =
-    useState<boolean>(false);
-
   const toggleStatusPicker = () => {
-    setTransactionStatusOpen(!transactionStatusOpen);
+    setEndDatePickerOpen(false);
+    setTransactionTypesOpen(false);
+    setStartDatePickerOpen(false);
+    setTransactionStatusFilterOpen(!transactionStatusFilterOpen);
   };
 
   const handleSetStatus = (e: any) => {
@@ -47,13 +52,13 @@ export const StatusFilter: FC<StatusFilterType> = ({
             {transactionStatus.join(",")}
           </div>
           <Image
-            src={transactionStatusOpen ? ArrowUpIcon : ArrowDownIcon}
+            src={transactionStatusFilterOpen ? ArrowUpIcon : ArrowDownIcon}
             alt="date-picker-icon"
           />
         </div>
       </div>
 
-      {transactionStatusOpen && (
+      {transactionStatusFilterOpen && (
         <CheckBox
           availableOptions={transactionStatusOptions}
           selectecOptions={transactionStatus}

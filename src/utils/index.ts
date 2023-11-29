@@ -95,8 +95,9 @@ export const setDateFilterOption = (period: string) => {
       endDate = getFullDate(to);
       break;
     default:
-      startDate = dayjs();
+      startDate = dayjs("1970-00-00", "YYYY-MM-DD");
       endDate = dayjs();
+
       break;
   }
 
