@@ -23,13 +23,14 @@ export const UserMenu: FC<{ user: UserType }> = ({ user }) => {
     <div className="flex gap-2">
       {commsMenu.map((cm) => {
         return (
-          <Button
-            key={cm.id}
-            content={<Image src={cm.icon} alt={cm.title} />}
-            btnClass="secondary"
-            size="small"
-            handleClick={() => null}
-          />
+          <div key={cm.id} className="hidden sm:inline">
+            <Button
+              content={<Image src={cm.icon} alt={cm.title} />}
+              btnClass="secondary"
+              size="small"
+              handleClick={() => null}
+            />
+          </div>
         );
       })}
 

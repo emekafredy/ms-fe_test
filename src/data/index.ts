@@ -1,7 +1,4 @@
 import HomeIcon from "../assets/icons/nav/icon-home.svg";
-import AnalyticsIcon from "../assets/icons/nav/icon-analytics.svg";
-import RevenueIcon from "../assets/icons/nav/icon-revenue.svg";
-import CRMIcon from "../assets/icons/nav/icon-user-group.svg";
 import WidgetsIcon from "../assets/icons/nav/icon-widgets.svg";
 import BellIcon from "../assets/icons/nav/icon-bell.svg";
 import ChatIcon from "../assets/icons/nav/icon-chat.svg";
@@ -13,10 +10,10 @@ import InvoiceIcon from "../assets/icons/nav/icon-invoice.svg";
 
 export const menuItems = {
   appMenu: [
-    { id: "1", title: "Home", icon: HomeIcon },
-    { id: "2", title: "Analytics", icon: AnalyticsIcon },
-    { id: "3", title: "Revenue", icon: RevenueIcon },
-    { id: "4", title: "CRM", icon: CRMIcon },
+    { id: "1", title: "Home" },
+    { id: "2", title: "Analytics" },
+    { id: "3", title: "Revenue" },
+    { id: "4", title: "CRM" },
   ],
   apps: { title: "Apps", icon: WidgetsIcon },
   commsMenu: [
@@ -92,3 +89,27 @@ export const sideNavItems = [
     icon: InvoiceIcon,
   },
 ];
+
+export const filterData = {
+  options: [
+    { id: "1", period: "Today" },
+    { id: "2", period: "Last 7 days" },
+    { id: "3", period: "This month" },
+    { id: "4", period: "Last 3 months" },
+    { id: "5", period: "This year" },
+    { id: "6", period: "Last year" },
+    { id: "7", period: "All time" },
+  ],
+};
+
+export const transactionTypesOptions = [
+  "store transactions",
+  "withdrawal",
+  "get tipped",
+  "deposit",
+  "chargebacks",
+  "cashbacks",
+  "refer & earn",
+];
+
+export const transactionStatusOptions = ["successful", "pending", "failed"];

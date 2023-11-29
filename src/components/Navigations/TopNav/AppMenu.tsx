@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 // components
 import { Button } from "@/components/Button";
 import { AppMenuDropDown } from "./AppMenuDropdown";
+import { PageMenuSVG, AppMenuSVG } from "./PageMenuSVG";
 
 // others
 import { menuItems } from "@/data";
@@ -20,8 +21,10 @@ export const AppMenu = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex gap-2">
+    <div className="hidden md:flex gap-2">
       {appMenu.map((item) => {
+        const path =
+          item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`;
         return (
           <Button
             key={item.id}
@@ -29,7 +32,9 @@ export const AppMenu = () => {
             btnClass="secondary"
             active={setActiveLink(item.title, pathname)}
             size="medium"
-            leftIcon={item.icon}
+            leftIcon={
+              <PageMenuSVG page={item.title} active={pathname === path} />
+            }
             imgAlt={item.title}
             handleClick={() =>
               router.push(
@@ -44,7 +49,7 @@ export const AppMenu = () => {
         content={apps.title}
         btnClass="secondary"
         size="medium"
-        leftIcon={apps.icon}
+        leftIcon={<AppMenuSVG active={showAppMenuDropdown} />}
         active={showAppMenuDropdown}
         imgAlt="Apps Logo"
         handleClick={() => setShowAppMenuDropdown(!showAppMenuDropdown)}

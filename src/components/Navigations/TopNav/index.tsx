@@ -19,8 +19,8 @@ export const TopNav = async () => {
   const user = await getUser();
 
   return (
-    <div className="fixed top-6 z-[100] w-full">
-      <nav className="flex items-center justify-between px-6 py-4 bg-white shadow-md rounded-full w-[98%] m-auto">
+    <div className="fixed top-0 z-[100] w-full bg-white">
+      <nav className="flex items-center justify-between mt-8 px-6 py-4 bg-white shadow-md rounded-full w-[98%] m-auto">
         <Image src={MSLogo} alt="Mainstack logo" width={30} />
         <AppMenu />
 

@@ -11,15 +11,19 @@ export const Button: FC<ButtonType> = ({
   imgAlt = "",
   handleClick,
   active,
+  bordered,
+  disabled,
 }) => {
   return (
     <button
-      className={`btn-${
-        active ? "primary" : btnClass
-      } btn-${size} transition-all duration-500`}
+      className={`btn-${active ? "primary" : btnClass} btn-${size} ${
+        bordered ? "btn-border" : ""
+      } transition-all duration-500 ${disabled ? "btn-disabled" : ""}`}
       onClick={handleClick}
+      disabled={disabled}
     >
-      {leftIcon && <Image src={leftIcon} alt={imgAlt} />}
+      {/* {leftIcon && <Image src={leftIcon} alt={imgAlt} />} */}
+      {leftIcon}
       {content}
       {rightIcon && <Image src={rightIcon} alt={imgAlt} />}
     </button>

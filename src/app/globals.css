@@ -29,7 +29,15 @@ button {
 }
 
 .btn-tertiary {
-  @apply bg-tertiary-100;
+  @apply bg-tertiary-100 font-semibold;
+}
+
+.btn-transparent {
+  @apply bg-transparent font-semibold text-xs w-[115px];
+}
+
+.btn-selected {
+  @apply bg-primary-100 text-white font-semibold text-xs w-[115px];
 }
 
 .btn-small {
@@ -41,5 +49,17 @@ button {
 }
 
 .btn-large {
-  @apply px-12 py-4;
+  @apply px-3 py-2 md:px-6 md:py-3;
+}
+
+.btn-wide {
+  @apply w-[100%] py-2;
+}
+
+.btn-border {
+  @apply border border-gray-300;
+}
+
+.btn-disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
