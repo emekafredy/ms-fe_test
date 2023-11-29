@@ -22,7 +22,8 @@ export const Button: FC<ButtonType> = ({
       onClick={handleClick}
       disabled={disabled}
     >
-      {leftIcon && <Image src={leftIcon} alt={imgAlt} />}
+      {/* {leftIcon && <Image src={leftIcon} alt={imgAlt} />} */}
+      {leftIcon}
       {content}
       {rightIcon && <Image src={rightIcon} alt={imgAlt} />}
     </button>

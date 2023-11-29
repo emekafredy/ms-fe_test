@@ -1,9 +1,81 @@
+"use client";
+
 import { FC } from "react";
 import Link from "next/link";
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+} from "chart.js";
+import dayjs from "dayjs";
 import { formatAndSeparateNumber } from "@/utils";
+import { TransactionDetailsType } from "@/types/transactions.type";
 
-export const Chart: FC<{ balance: number }> = ({ balance }) => {
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+
+export const options = {
+  plugins: {},
+  scales: {
+    x: {
+      ticks: {
+        display: true,
+        autoSkip: true,
+        maxTicksLimit: 3,
+      },
+      grid: {
+        drawBorder: false,
+        display: false,
+      },
+    },
+    y: {
+      ticks: {
+        display: false,
+        beginAtZero: true,
+      },
+      grid: {
+        display: false,
+      },
+      border: {
+        display: false,
+      },
+    },
+  },
+};
+
+const getChartData = (transactions: TransactionDetailsType[]) => {
+  return {
+    labels: transactions?.map((o) => dayjs(o.date).format("MMM D, YYYY")),
+    datasets: [
+      {
+        label: "",
+        data: transactions?.map((o) => o.amount),
+        fill: false,
+        borderColor: "#FF5302",
+        tension: 0.5,
+        backgroundColor: "#FFFFFF",
+        borderWidth: 1.7,
+        pointRadius: 0,
+      },
+    ],
+  };
+};
+
+export const ChartComponent: FC<{
+  balance: number;
+  transactions: TransactionDetailsType[];
+}> = ({ balance, transactions }) => {
   const formattedBalance = formatAndSeparateNumber(balance);
+
+  const ordered = transactions.sort(function compare(a, b) {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateA.valueOf() - dateB.valueOf();
+  });
+
+  const data = getChartData(ordered);
 
   return (
     <div className="w-[100%] md:w-[70%]">
@@ -27,9 +99,9 @@ export const Chart: FC<{ balance: number }> = ({ balance }) => {
         </Link>
       </div>
 
-      {/* <div className="flex items-center justify-center h-24">
-        <p className="font-bold text-2xl">CHART</p>
-      </div> */}
+      <div className="flex items-center justify-center mt-8">
+        <Line data={data} width={400} options={options} />
+      </div>
     </div>
   );
 };

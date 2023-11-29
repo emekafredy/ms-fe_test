@@ -11,9 +11,11 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
+    "chart.js": "^4.4.0",
     "dayjs": "^1.11.10",
     "next": "14.0.3",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18"
   },
   "devDependencies": {
