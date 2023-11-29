@@ -6,14 +6,7 @@ import { AppMenu } from "./AppMenu";
 
 // others
 import MSLogo from "../../../assets/icons/nav/icon-ms-logo.svg";
-import { UserType } from "@/types/user.type";
-
-const getUser = async (): Promise<UserType> => {
-  const data = await fetch("https://fe-task-api.mainstack.io/user");
-  const user = await data.json();
-
-  return user;
-};
+import { getUser } from "@/api/user";
 
 export const TopNav = async () => {
   const user = await getUser();
