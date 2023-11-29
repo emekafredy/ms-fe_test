@@ -1,6 +1,4 @@
-"use client";
-
-import { FC, useState } from "react";
+import { FC } from "react";
 import Image from "next/image";
 
 // components
@@ -43,7 +41,7 @@ export const StatusFilter: FC<StatusFilterType> = ({
   return (
     <>
       <div className="mt-8">
-        <p className="font-bold text-md text-left mb-2">Transaction Type</p>
+        <p className="font-bold text-md text-left mb-2">Transaction Status</p>
         <div
           className="px-4 py-3 border rounded-lg flex items-center justify-between"
           onClick={toggleStatusPicker}

@@ -1,8 +1,17 @@
 import { TransactionDetailsType } from "@/types/transactions.type";
 
 export const getTransactions = async (): Promise<TransactionDetailsType[]> => {
-  const data = await fetch("https://fe-task-api.mainstack.io/transactions");
-  const transactions = await data.json();
+  try {
+    const res = await fetch("https://fe-task-api.mainstack.io/transactions");
 
-  return transactions;
+    if (!res.ok)
+      throw new Error("Failed to fetch transactions. Please try again");
+
+    const transactions = await res.json();
+
+    return transactions;
+  } catch (err) {
+    if (err instanceof Error) throw new Error(err.message);
+    return [];
+  }
 };

@@ -12,7 +12,7 @@ import { PageMenuSVG, AppMenuSVG } from "./PageMenuSVG";
 import { menuItems } from "@/data";
 import { setActiveLink } from "@/utils";
 
-export const AppMenu = () => {
+export const AppMenu = ({ styles }: { styles: string }) => {
   const { appMenu, apps } = menuItems;
   const [showAppMenuDropdown, setShowAppMenuDropdown] =
     useState<boolean>(false);
@@ -21,7 +21,7 @@ export const AppMenu = () => {
   const pathname = usePathname();
 
   return (
-    <div className="hidden md:flex gap-2">
+    <div className={styles}>
       {appMenu.map((item) => {
         const path =
           item.title === "Home" ? "/" : `/${item.title.toLowerCase()}`;

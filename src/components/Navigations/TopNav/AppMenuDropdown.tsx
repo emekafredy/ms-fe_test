@@ -5,7 +5,10 @@ export const AppMenuDropDown = () => {
   const { appsDropdown } = menuItems;
 
   return (
-    <div className="fixed inset-0 z-[200] outline-none focus:outline-none rounded top-24 right-32">
+    <div
+      className="fixed inset-0 z-[200] outline-none focus:outline-none rounded
+        top-[52%] -left-[70%] md:-left-0 md:top-24 md:right-32"
+    >
       <div className="relative w-[900px] m-auto">
         <div className="bg-white mt-4 rounded-2xl py-2 px-3 w-[380px] float-right shadow-lg">
           <div className="my-4">

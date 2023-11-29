@@ -1,5 +1,3 @@
-"use client";
-
 import { FC } from "react";
 import { ModalType } from "@/types/modal.type";
 
