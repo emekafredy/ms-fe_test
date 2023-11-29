@@ -251,6 +251,21 @@ const MenuItem: FC<{ title: string }> = ({ title }) => {
   );
 };
 
+const ItemTooltip: FC<{ title: string }> = ({ title }) => {
+  return (
+    <div
+      className="absolute bottom-0 left-16 scale-0 rounded-lg bg-primary-100
+                p-4 group-hover:scale-100 w-[110px] flex flex-row items-center justify-center"
+    >
+      <span className="relative z-10 text-sm leading-none text-white whitespace-no-wrap shadow-lg">
+        {" "}
+        {title}{" "}
+      </span>
+      <div className="absolute w-3 h-3 -left-1 rotate-45 bg-primary-100"></div>
+    </div>
+  );
+};
+
 export const SideNavMenu = () => {
   return (
     <>
@@ -258,9 +273,10 @@ export const SideNavMenu = () => {
         return (
           <div
             key={item.id}
-            className="flex items-center justify-start gap-4 mt-2 hover:bg-gray-200 p-2 rounded-full"
+            className="flex items-center justify-start gap-4 mt-2 hover:bg-gray-200 p-2 rounded-full group relative"
           >
             <MenuItem title={item.title} />
+            <ItemTooltip title={item.title} />
           </div>
         );
       })}
